@@ -5,7 +5,7 @@
         <file>MenuScreen.qml</file>
         <file>Image/menuImg_01.jpg</file>
         <file>Image/welcomeScreenImg.jpg</file>
-        <file>DetailScreen.qml</file>
+        <file>ProgramScreen.qml</file>
         <file>Image/wifi.png</file>
         <file>HeaderBar.qml</file>
     </qresource>

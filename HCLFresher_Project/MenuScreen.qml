@@ -57,7 +57,7 @@ Rectangle {
                             anchors.fill: parent
                             onClicked: {
                                 menuScreen.visible ? menuScreen.state = "hideMenu" : menuScreen.state = "showMenu"
-                                detailScreen.visible ? detailScreen.state = "hideDetail" : detailScreen.state = "showDetail"
+                                programScreen.visible ? programScreen.state = "hideDetail" : programScreen.state = "showDetail"
                                 screenController.titleChanged(model.name)
                             }
                         }
@@ -117,19 +117,4 @@ Rectangle {
             }
 
         ]
-        Button{
-            text: "<< Back"
-            anchors.bottom: menuScreen.top
-            background: Rectangle {
-                color: "white"
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    welcomeScreen.visible ? welcomeScreen.state = "hideWelcome" : welcomeScreen.state = "showWelcome"
-                    menuScreen.visible ? menuScreen.state = "hideMenu" : menuScreen.state = "showMenu"
-                }
-            }
-        }
-
 }

@@ -3,7 +3,7 @@ import QtQuick.Window 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
 Rectangle{
-        id: detailScreen
+        id: programScreen
         anchors.centerIn: parent
 
         width: 800;
@@ -48,14 +48,14 @@ Rectangle{
             State {
                 name: "showDetail"
                 PropertyChanges {
-                    target: detailScreen;
+                    target: programScreen;
                     visible: true
                 }
             },
             State {
                 name: "hideDetail"
                 PropertyChanges {
-                    target: detailScreen;
+                    target: programScreen;
                     visible: false
                 }
             }
@@ -64,14 +64,14 @@ Rectangle{
         // Handling mouse click and key press
         Button{
             text: "<< Back"
-            anchors.bottom: detailScreen.top
+            anchors.bottom: programScreen.top
             background: Rectangle {
                 color: "white"
             }
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    detailScreen.visible ? detailScreen.state = "hideDetail" : detailScreen.state = "showDetail"
+                    programScreen.visible ? programScreen.state = "hideDetail" : programScreen.state = "showDetail"
                     menuScreen.visible ? menuScreen.state = "hideMenu" : menuScreen.state = "showMenu"
                 }
             }

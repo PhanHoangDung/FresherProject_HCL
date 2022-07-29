@@ -10,6 +10,7 @@ Rectangle{
         height: 300;
         color: "black"
         radius: 10
+        border.color: "white"
         GridLayout{
             id: welcomeGridLayout
             rows: 1
@@ -83,6 +84,23 @@ Rectangle{
             onClicked: {
                 menuScreen.visible ? menuScreen.state = "hideMenu" : menuScreen.state = "showMenu"
                 welcomeScreen.visible ? welcomeScreen.state = "hideWelcome" : welcomeScreen.state = "showWelcome"
+            }
+        }
+
+        Item{
+            focus: true;
+            Keys.onPressed: (event)=> {
+                            if (event.key === Qt.Key_F1){
+                                    if(welcomeScreen.visible)
+                                        welcomeScreen.state = "hideWelcome";
+                                    else
+                                        welcomeScreen.state = "showWelcome";
+
+                                    if(menuScreen.visible)
+                                        menuScreen.state = "hideMenu";
+                                    if(programScreen.visible)
+                                        programScreen.state = "hideDetail";
+                            }
             }
         }
 }

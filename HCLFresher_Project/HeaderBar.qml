@@ -3,9 +3,12 @@ import QtQuick 2.0
 Rectangle {
     id: header
     color: "black"
-    radius: 5
-    width: 750
     height: 50
+        anchors {
+            left: parent.left
+            top: parent.top
+            right: parent.right
+    }
 
     Rectangle {
         id: notificationBadge

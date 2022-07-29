@@ -6,14 +6,18 @@ import Controller 1.0
 /*
 Screen A: Welcome Screen (main.qml) ===> id: welcomeScreen
 Screen B: Menu Screen (MenuScreen.qml) ====> id: menuScreen
-Screen C: Detail Screen (DetailScreen.qml) ===> id: detailScreen
+Screen C: Detail Screen (ProgramScreen.qml) ===> id: programScreen
 */
 Window {
     width: 1000
     height: 800
     visible: true
     title: qsTr("BOSCH  Premium")
-
+    Rectangle {
+            id: backgroundImage
+            anchors.fill: parent
+            color: "lightgray"
+    }
 
     // import C++ class
     ScreenController{
@@ -23,7 +27,6 @@ Window {
     // Related screen
     HeaderBar {
         id: header
-        visible : false
     }
 
     WelcomeScreen{
@@ -32,8 +35,8 @@ Window {
     MenuScreen {
             id: menuScreen
     }
-    DetailScreen{
-            id: detailScreen
+    ProgramScreen{
+            id: programScreen
     }
 
 }

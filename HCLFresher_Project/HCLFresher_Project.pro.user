@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.2, 2022-07-26T18:02:42. -->
+<!-- Written by QtCreator 7.0.2, 2022-07-29T11:41:51. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -243,8 +243,9 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/HCL/Projects/22_07_2022/HCLFresher_Project/HCLFresher_Project.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/HCL/Projects/22_07_2022/HCLFresher_Project/HCLFresher_Project.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">HCLFresher_Project2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/HCL/Projects/Fresher/FresherProject_HCL/HCLFresher_Project/HCLFresher_Project.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/HCL/Projects/Fresher/FresherProject_HCL/HCLFresher_Project/HCLFresher_Project.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
