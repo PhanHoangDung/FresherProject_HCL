@@ -8,5 +8,6 @@
         <file>ProgramScreen.qml</file>
         <file>Image/wifi.png</file>
         <file>HeaderBar.qml</file>
+        <file>data.json</file>
     </qresource>
 </RCC>

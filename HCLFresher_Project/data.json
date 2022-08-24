@@ -1,0 +1,33 @@
+[
+    {
+        "name": "Microwave",
+        "image": "qrc:/Image/menuImg_01.jpg",
+        "description": "Quick preparation",
+        "detail": "A microwave is a small oven that cooks or heats food very quickly.
+        Instead of the electric or gas heat that a regular oven uses,
+        a microwave heats with electromagnetic radiation.",
+    },
+    {
+        "name": "Steam",
+        "image": "qrc:/Image/menuImg_01.jpg",
+        "description": "Gentle preparation",
+        "detail": "Steaming is a method of cooking that requires moist heat.
+        The heat is created by boiling water which vaporizes into steam.
+        The steam brings heat to the food and cooks it.
+        Unlike boiling, the food is separate from the water and only comes into direct contact with the team.",
+    },
+    {
+        "name": "Meals",
+        "image": "qrc:/Image/menuImg_01.jpg",
+        "description": "Assist programmes",
+        "detail": "Any of the regular occasions in a day when a reasonably large amount of food is eaten,
+        such as breakfast, lunch, or dinner.",
+    },
+    {
+        "name": "Favorites",
+        "image": "qrc:/Image/menuImg_01.jpg",
+        "description": "",
+        "detail": "",
+    },
+
+]

@@ -2,35 +2,35 @@ import QtQuick 2.0
 import QtQuick.Window 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
-Rectangle{
-        id: programScreen
-        anchors.centerIn: parent
+Item{
+    Rectangle{
+            id: programScreen
+            anchors.centerIn: parent
 
-        width: 800;
-        height: 300;
-        color: "black"
-        radius: 10
-        visible: false
+            width: 800;
+            height: 300;
+            color: "black"
+            radius: 10
                     // Text part
-            Rectangle {
-                    id: welcomeText
+                    Rectangle {
+                        id: welcomeText
 
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.preferredWidth: 3
-                    Layout.columnSpan: 3
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                        Layout.preferredWidth: 3
+                        Layout.columnSpan: 3
 
-                    color: "black"
-                    width: 500; height: 300
-                    Text {
+                        color: "black"
+                        width: 500; height: 300
+                        Text {
                                 id: detailName
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 color: "white"
                                 font.pointSize: 20
                                 text: "Name: Grilled Fish"
-                    }
-                    Text {
+                        }
+                        Text {
                                anchors{
                                     top: detailName.bottom
                                     horizontalCenter: parent.horizontalCenter
@@ -39,10 +39,12 @@ Rectangle{
                                 color: "white"
                                 font.pointSize: 13
                                 text: "Cost: 5$"
-                    }
+                        }
               }
+    }
+}
 
-
+/*
         // Handling states and transistion
         states: [
             State {
@@ -76,5 +78,4 @@ Rectangle{
                 }
             }
         }
-
-}
+*/

@@ -27,3 +27,5 @@ HEADERS += \
     controller.h \
     model.h \
     screencontroller.h
+
+DISTFILES +=

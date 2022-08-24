@@ -2,13 +2,13 @@ import QtQuick 2.0
 import QtQuick.Controls 2.15
 import QtQml.Models 2.15
 import QtQuick.Layouts 1.15
-Rectangle {
+Item{
+    Rectangle {
         id: menuScreen
         anchors.centerIn: parent
-        width: 750
-        height: 250
-        visible: false
-
+        anchors.top: HeaderBar.bottom
+        width: 800;
+        height: 300;
         ListView {
             id: listView
             width: menuScreen.width
@@ -18,21 +18,22 @@ Rectangle {
             orientation: ListView.Horizontal
 
             model: ListModel {
-                ListElement {
-                    name: "Types of heating";
-                    sub: "Manual preparation";
-                    color: "black";
-                    image: "./Image/menuImg_01.jpg"}
-                ListElement {
-                    name: "Microwave";
-                    sub: "Quick preparation";
-                    color: "black";
-                    image: "./Image/menuImg_01.jpg"}
-                ListElement {
-                    name: "Steam";
-                    sub: "Gentle preparation"
-                    color: "black";
-                    image: "./Image/menuImg_01.jpg"}
+                id: modelView
+                            ListElement {
+                                name: "Types of heating";
+                                sub: "Manual preparation";
+                                color: "black";
+                                image: "./Image/menuImg_01.jpg"}
+                            ListElement {
+                                name: "Microwave";
+                                sub: "Quick preparation";
+                                color: "black";
+                                image: "./Image/menuImg_01.jpg"}
+                            ListElement {
+                                name: "Steam";
+                                sub: "Gentle preparation"
+                                color: "black";
+                                image: "./Image/menuImg_01.jpg"}
             }
 
             delegate: Rectangle {
@@ -53,14 +54,6 @@ Rectangle {
                         source: model.image
                         Layout.preferredWidth: 300
                         Layout.preferredHeight: 300
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                menuScreen.visible ? menuScreen.state = "hideMenu" : menuScreen.state = "showMenu"
-                                programScreen.visible ? programScreen.state = "hideDetail" : programScreen.state = "showDetail"
-                                screenController.titleChanged(model.name)
-                            }
-                        }
 
                     }
 
@@ -99,7 +92,18 @@ Rectangle {
                 visible: listView.currentIndex === index ? true : false
             }
         }
+    }
+}
 
+/*
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                menuScreen.visible ? menuScreen.state = "hideMenu" : menuScreen.state = "showMenu"
+                                programScreen.visible ? programScreen.state = "hideDetail" : programScreen.state = "showDetail"
+                                screenController.titleChanged(model.name)
+                            }
+                        }
         states: [
             State {
                 name: "showMenu"
@@ -117,4 +121,4 @@ Rectangle {
             }
 
         ]
-}
+*/
