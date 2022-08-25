@@ -7,10 +7,24 @@ Item{
             id: programScreen
             anchors.centerIn: parent
 
-            width: 800;
+            width: 1000;
             height: 300;
             color: "black"
             radius: 10
+            GridLayout{
+                id: programGridLayout
+                rows: 1
+                columns: 4
+                anchors.fill: programScreen
+                width: programScreen.width
+                height: programScreen.height
+                    // Image part
+                    Image {
+                        id: programImage
+                        source: img
+                        Layout.preferredWidth: programScreen.height
+                        Layout.preferredHeight: programScreen.height
+                    }
                     // Text part
                     Rectangle {
                         id: welcomeText
@@ -28,9 +42,10 @@ Item{
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 color: "white"
                                 font.pointSize: 20
-                                text: "Name: Grilled Fish"
+                                text: name
                         }
                         Text {
+                               id: descName
                                anchors{
                                     top: detailName.bottom
                                     horizontalCenter: parent.horizontalCenter
@@ -38,9 +53,20 @@ Item{
 
                                 color: "white"
                                 font.pointSize: 13
-                                text: "Cost: 5$"
+                                text: desc
+                        }
+                        Text {
+                               anchors{
+                                    top: descName.bottom
+                                    horizontalCenter: parent.horizontalCenter
+                                }
+
+                                color: "white"
+                                font.pointSize: 13
+                                text: detail
                         }
               }
+            }
     }
 }
 

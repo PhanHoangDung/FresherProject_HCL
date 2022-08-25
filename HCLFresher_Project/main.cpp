@@ -1,6 +1,13 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include "screencontroller.h"
+#include <controller.h>
+#include <model.h>
+
+#include <QQmlContext>
+#include <QFile>
+#include <QDomDocument>
+#include <QDomElement>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -8,10 +15,16 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
     QGuiApplication app(argc, argv);
-
-    qmlRegisterType<ScreenController>("Controller", 1,0, "ScreenController");
-
     QQmlApplicationEngine engine;
+    Controller controller;
+    controller.setDataSource("Json");
+
+    Model model;
+    model.setController(controller);
+
+    QQmlContext *rootCtx = engine.rootContext();
+    rootCtx->setContextProperty("_model",&model);
+
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {

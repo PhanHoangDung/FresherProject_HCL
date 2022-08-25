@@ -17,27 +17,11 @@ Item{
             highlightRangeMode: ListView.StrictlyEnforceRange
             orientation: ListView.Horizontal
 
-            model: ListModel {
-                id: modelView
-                            ListElement {
-                                name: "Types of heating";
-                                sub: "Manual preparation";
-                                color: "black";
-                                image: "./Image/menuImg_01.jpg"}
-                            ListElement {
-                                name: "Microwave";
-                                sub: "Quick preparation";
-                                color: "black";
-                                image: "./Image/menuImg_01.jpg"}
-                            ListElement {
-                                name: "Steam";
-                                sub: "Gentle preparation"
-                                color: "black";
-                                image: "./Image/menuImg_01.jpg"}
-            }
+            model: _model
 
             delegate: Rectangle {
-                color: model.color
+                id: delegateMenu
+                // color: model.color
                 width: ListView.view.width
                 height: ListView.view.height
                 GridLayout{
@@ -51,9 +35,13 @@ Item{
                     // Image part
                     Image {
                         id: welcomeImage
-                        source: model.image
+                        source: img
                         Layout.preferredWidth: 300
                         Layout.preferredHeight: 300
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: popProgram.visible ?  popProgram.close() : popProgram.open()
+                        }
 
                     }
 
@@ -74,7 +62,7 @@ Item{
                                         anchors.horizontalCenter: parent.horizontalCenter
                                         color: "white"
                                         font.pointSize: 20
-                                        text: model.name
+                                        text: name
                             }
                             Text{
                                 id: menuDesc
@@ -83,13 +71,40 @@ Item{
                                 anchors.bottom: menuName.top
                                 color: "white"
                                 font.pointSize: 13
-                                text: model.sub
+                                text: desc
 
                             }
 
                       }
                 }
                 visible: listView.currentIndex === index ? true : false
+                Popup {
+                    id: popProgram
+                    anchors.centerIn: Overlay.overlay
+                    width: parent.width
+                    height: parent.height
+                    ProgramScreen {
+                        id: program
+                        anchors {
+                            bottom: parent.bottom
+                            top: parent.top
+                            left: parent.left
+                            right: parent.right
+                        }
+                    }
+                    Button {
+                        id: btn
+                        text: "<< Back"
+                        anchors{
+                            bottom: parent.bottom
+                            left: parent.left
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: popProgram.visible ?  popProgram.close() : popProgram.open()
+                        }
+                    }
+                }
             }
         }
     }

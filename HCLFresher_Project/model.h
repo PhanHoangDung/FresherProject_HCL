@@ -1,16 +1,34 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include <QObject>
+#include "object.h"
+#include <QAbstractListModel>
+#include "controller.h"
 
-class Model : public QObject
+class Model : public QAbstractListModel
 {
-    Q_OBJECT
+    Q_OBJECT;
 public:
-    explicit Model(QObject *parent = nullptr);
+    Model(QObject *parent = nullptr);
 
-signals:
+    enum ObjectEnum{
+        NameRole,
+        ImageRole,
+        DescriptionRole,
+        DetailRole
+    };
 
+    int rowCount(const QModelIndex &parent = QModelIndex() ) const;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+
+    const Controller &controller() const;
+    void setController(const Controller &newController);
+
+protected:
+    QHash<int, QByteArray> roleNames() const;
+private:
+    QList<Object> m_objects;
+    Controller m_controller;
 };
 
 #endif // MODEL_H

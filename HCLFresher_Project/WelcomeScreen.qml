@@ -12,7 +12,7 @@ Item{
             color: "black"
             radius: 10
             border.color: "white"
-            GridLayout{
+            GridLayout {
                 id: welcomeGridLayout
                 rows: 1
                 columns: 4
@@ -61,11 +61,11 @@ Item{
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: pop.visible ?  pop.close() : pop.open()
+                onClicked: popMenu.visible ?  popMenu.close() : popMenu.open()
             }
             visible: true
             Popup {
-                id: pop
+                id: popMenu
                 anchors.centerIn: Overlay.overlay
                 width: parent.width
                 height: parent.height
@@ -75,6 +75,18 @@ Item{
                         top: parent.top
                         left: parent.left
                         right: parent.right
+                    }
+                }
+                Button {
+                    id: btn
+                    anchors{
+                        bottom: parent.bottom
+                        left: parent.left
+                    }
+                    text: "<< Back"
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: popMenu.visible ?  popMenu.close() : popMenu.open()
                     }
                 }
             }

@@ -1,4 +1,4 @@
-QT += quick
+QT += quick xml
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -8,7 +8,7 @@ SOURCES += \
         controller.cpp \
         main.cpp \
         model.cpp \
-        screencontroller.cpp
+        object.cpp
 
 RESOURCES += qml.qrc
 
@@ -26,6 +26,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     controller.h \
     model.h \
-    screencontroller.h
+    object.h
 
 DISTFILES +=
