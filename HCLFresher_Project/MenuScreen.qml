@@ -57,26 +57,40 @@ Item{
                             color: "black"
                             width: 500; height: 300
                             Text {
-                                        id: menuName
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        anchors.horizontalCenter: parent.horizontalCenter
-                                        color: "white"
-                                        font.pointSize: 20
-                                        text: name
+                                 id: menuName
+                                 anchors.verticalCenter: parent.verticalCenter
+                                 anchors.horizontalCenter: parent.horizontalCenter
+                                 color: "white"
+                                 font.pointSize: 20
+                                 text: name
                             }
                             Text{
-                                id: menuDesc
-                                anchors.verticalCenter: parent.verticalCenter
-                                anchors.horizontalCenter: parent.horizontalCenter
-                                anchors.bottom: menuName.top
-                                color: "white"
-                                font.pointSize: 13
-                                text: desc
+                                 id: menuDesc
+                                 anchors.verticalCenter: parent.verticalCenter
+                                 anchors.horizontalCenter: parent.horizontalCenter
+                                 anchors.bottom: menuName.top
+                                 color: "white"
+                                 font.pointSize: 13
+                                 text: desc
 
                             }
-
                       }
+                      Text{
+                            id: indexNum
+                            anchors{
+                                horizontalCenter: parent.horizontalCenter
+                                verticalCenter: parent.verticalCenter
+                                top: parent.bottom
+                                topMargin: 5
+
+                            }
+                            color: "black"
+                            font.pointSize: 12
+                            text: listView.currentIndex + 1
+                     }
                 }
+
+
                 visible: listView.currentIndex === index ? true : false
                 Popup {
                     id: popProgram
@@ -96,12 +110,14 @@ Item{
                         id: btn
                         text: "<< Back"
                         anchors{
-                            bottom: parent.bottom
-                            left: parent.left
+                            bottom: program.bottom
+                            left: program.left
                         }
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: popProgram.visible ?  popProgram.close() : popProgram.open()
+                            onClicked: {
+                                popProgram.visible ?  popProgram.close() : popProgram.open()
+                            }
                         }
                     }
                 }
@@ -109,31 +125,3 @@ Item{
         }
     }
 }
-
-/*
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                menuScreen.visible ? menuScreen.state = "hideMenu" : menuScreen.state = "showMenu"
-                                programScreen.visible ? programScreen.state = "hideDetail" : programScreen.state = "showDetail"
-                                screenController.titleChanged(model.name)
-                            }
-                        }
-        states: [
-            State {
-                name: "showMenu"
-                PropertyChanges {
-                    target: menuScreen;
-                    visible: true
-                }
-            },
-            State {
-                name: "hideMenu"
-                PropertyChanges {
-                    target: menuScreen;
-                    visible: false
-                }
-            }
-
-        ]
-*/

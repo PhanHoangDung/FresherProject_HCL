@@ -9,5 +9,6 @@
         <file>Image/wifi.png</file>
         <file>HeaderBar.qml</file>
         <file>data.json</file>
+        <file>analogClock.qml</file>
     </qresource>
 </RCC>

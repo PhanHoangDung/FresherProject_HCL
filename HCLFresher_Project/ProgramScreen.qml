@@ -7,8 +7,10 @@ Item{
             id: programScreen
             anchors.centerIn: parent
 
-            width: 1000;
+            width: 1200;
+            onWidthChanged: width = height * 4
             height: 300;
+            onHeightChanged: width = height * 4
             color: "black"
             radius: 10
             GridLayout{
@@ -70,38 +72,3 @@ Item{
     }
 }
 
-/*
-        // Handling states and transistion
-        states: [
-            State {
-                name: "showDetail"
-                PropertyChanges {
-                    target: programScreen;
-                    visible: true
-                }
-            },
-            State {
-                name: "hideDetail"
-                PropertyChanges {
-                    target: programScreen;
-                    visible: false
-                }
-            }
-        ]
-
-        // Handling mouse click and key press
-        Button{
-            text: "<< Back"
-            anchors.bottom: programScreen.top
-            background: Rectangle {
-                color: "white"
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    programScreen.visible ? programScreen.state = "hideDetail" : programScreen.state = "showDetail"
-                    menuScreen.visible ? menuScreen.state = "hideMenu" : menuScreen.state = "showMenu"
-                }
-            }
-        }
-*/

@@ -31,7 +31,16 @@ Item{
             anchors.centerIn: parent
             color: "white"
             font.pixelSize: 36
-            text: "12:22 PM"
+        }
+        Timer{
+            interval: 500
+            running: true
+            repeat: true
+
+            onTriggered: {
+                var date = new Date();
+                timeText.text = date.toLocaleTimeString(Qt.locale("en_US"), "hh:mm ap");
+            }
         }
 
         Image {

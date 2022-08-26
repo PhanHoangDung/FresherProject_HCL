@@ -9,9 +9,8 @@ Item{
             anchors.top: HeaderBar.bottom
             width: 800;
             height: 300;
-            color: "black"
+            color: "white"
             radius: 10
-            border.color: "white"
             GridLayout {
                 id: welcomeGridLayout
                 rows: 1
@@ -19,16 +18,6 @@ Item{
                 anchors.fill: welcomeScreen
                 width: welcomeScreen.width
                 height: welcomeScreen.height
-
-                // Image part
-                Image {
-                    id: welcomeImage
-                    source: "./Image/welcomeScreenImg.jpg"
-                    Layout.preferredWidth: 300
-                    Layout.preferredHeight: 300
-                }
-
-                // Text part
                 Rectangle {
                     id: welcomeText
 
@@ -37,31 +26,37 @@ Item{
                     Layout.preferredWidth: 3
                     Layout.columnSpan: 3
 
-                    color: "black"
+                    color: "white"
                     width: 500; height: 300
+                    // Time part
                     Text {
-                                id: mainMenu
+                                id: timeText
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.horizontalCenter: parent.horizontalCenter
-                                color: "white"
-                                font.pointSize: 20
-                                text: "MAIN MENU"
+                                color: "black"
+                                font.pointSize: 70
                     }
-                    Text {
-                               anchors{
-                                    top: mainMenu.bottom
-                                    horizontalCenter: parent.horizontalCenter
-                                }
+                    // Analog clock
 
-                                color: "white"
-                                font.pointSize: 13
-                                text: "Tempting dish should try"
-                    }
                 }
             }
+            Timer{
+                interval: 500
+                running: true
+                repeat: true
+
+                onTriggered: {
+                    var date = new Date();
+                    timeText.text = date.toLocaleTimeString(Qt.locale("en_US"), "hh:mm ap");
+                }
+            }
+
             MouseArea {
                 anchors.fill: parent
-                onClicked: popMenu.visible ?  popMenu.close() : popMenu.open()
+                onClicked: {
+                    welcomeScreen.visible ? false : true
+                    popMenu.visible ?  popMenu.close() : popMenu.open()
+                }
             }
             visible: true
             Popup {
@@ -70,6 +65,7 @@ Item{
                 width: parent.width
                 height: parent.height
                 MenuScreen {
+                    id: menu
                     anchors {
                         bottom: parent.bottom
                         top: parent.top
@@ -92,53 +88,5 @@ Item{
             }
     }
 }
-/*
-        // Handling states and transistion
-        states: [
-            State {
-                name: "showWelcome"
-                PropertyChanges {
-                    target: welcomeScreen;
-                    visible: true
-                }
-            },
-            State {
-                name: "hideWelcome"
-                PropertyChanges {
-                    target: welcomeScreen;
-                    visible: false
-                }
-            }
-        ]
-
-        // Handling mouse click and key press
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                menuScreen.visible ? menuScreen.state = "hideMenu" : menuScreen.state = "showMenu"
-                welcomeScreen.visible ? welcomeScreen.state = "hideWelcome" : welcomeScreen.state = "showWelcome"
-            }
-        }
-
-        Item{
-            focus: true;
-            Keys.onPressed: (event)=> {
-                            if (event.key === Qt.Key_F1){
-                                    if(welcomeScreen.visible)
-                                        welcomeScreen.state = "hideWelcome";
-                                    else
-                                        welcomeScreen.state = "showWelcome";
-
-                                    if(menuScreen.visible)
-                                        menuScreen.state = "hideMenu";
-                                    if(programScreen.visible)
-                                        programScreen.state = "hideDetail";
-                            }
-            }
-        }
-*/
-
-
-
 
 
